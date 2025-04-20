@@ -62,7 +62,7 @@ def main():
     plt.xlabel("Manual Label Sample Index (Sorted by IoU)", fontweight = 'bold')
     plt.title("Final Model Performance on Manual Labels", fontweight = 'bold')
     plt.xticks(x, fontsize = 10)
-    plt.ylim(0.8, 1.1)
+    plt.ylim(0.8, 1.05)
     plt.legend()
     plt.tight_layout()
     os.makedirs(os.path.dirname(SAVE_PLOT), exist_ok = True)
