@@ -23,6 +23,18 @@ DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 def get_file_list(label_dir):
     return sorted([f.replace(".png", ".npy") for f in os.listdir(label_dir) if f.endswith(".png")])
 
+bce = nn.BCEWithLogitsLoss()
+
+def dice_loss(pred, target, smooth=1.0):
+    pred = torch.sigmoid(pred)
+    pred = pred.view(-1)
+    target = target.view(-1)
+    intersection = (pred * target).sum()
+    return 1 - ((2. * intersection + smooth) / (pred.sum() + target.sum() + smooth))
+
+def combined_loss(pred, target):
+    return 0.5 * bce(pred, target) + 0.5 * dice_loss(pred, target)
+
 def train(model, dataloader, optimizer, loss_fn):
     model.train()
     total_loss = 0
@@ -52,19 +64,18 @@ def main():
 
     # === Model, Loss, Optimizer ===
     model = UNet(in_channels = 1, out_channels = 1).to(DEVICE)
-    loss_fn = nn.BCEWithLogitsLoss()
     optimizer = optim.Adam(model.parameters(), lr = LR)
 
     # === Phase 1: Pretrain on weak labels ===
     print("\n Pretraining on weak labels...")
     for epoch in range(EPOCHS_WEAK):
-        loss = train(model, weak_loader, optimizer, loss_fn)
+        loss = train(model, weak_loader, optimizer, combined_loss)
         print(f"[Weak Epoch {epoch+1}] Loss: {loss:.4f}")
 
     # === Phase 2: Fine-tune on manual labels ===
     print("\n Fine-tuning on manual labels...")
     for epoch in range(EPOCHS_MANUAL):
-        loss = train(model, manual_loader, optimizer, loss_fn)
+        loss = train(model, manual_loader, optimizer, combined_loss)
         print(f"[Manual Epoch {epoch+1}] Loss: {loss:.4f}")
 
         # Visual eval
