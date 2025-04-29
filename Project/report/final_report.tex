@@ -35,15 +35,15 @@
 \author{Mohammad Ful Hossain Seikh\\
 Department of Electrical Engineering and Computer Science, KU\\\\
 \href{https://github.com/Mohammad-Neutrino/EECS836_Machine_Learning/tree/trunk/Project}{\textbf{EECS836 Project GitHub Repository}}}
-\date{April 20, 2025}
+\date{April 28, 2025}
 
 \begin{document}
 
 \maketitle
 
 \section*{1. Introduction}
-Radar echograms, commonly used in cryospheric research, contain rich vertical profiles of subsurface features. In many cases, detecting the air–snow boundary (the uppermost strong reflecting surface) is critical for understanding accumulation layers and temporal snow deposition patterns. However, manual labeling of such echograms is time-consuming and impractical for large datasets.\\\\
-This project aims to detect the air–snow interface in echogram images using a convolutional neural network (CNN)–based approach. The goal is to develop a supervised segmentation pipeline that minimizes manual annotation while still achieving high accuracy. We use a weak-to-strong training strategy, beginning with weak supervision from automatically generated labels and refining the model using a small number of manually labeled echograms.
+Radar echograms, commonly used in cryospheric research, contain rich vertical profiles of subsurface features. In many cases, detecting the air–snow boundary (the uppermost strong reflecting surface) is critical for understanding accumulation layers and temporal snow deposition patterns. However, manual labeling of such echograms is time consuming and impractical for large datasets.\\\\
+This project aims to detect the air–snow interface in echogram images using a convolutional neural network (CNN) based approach. The goal is to develop a supervised segmentation pipeline that minimizes manual annotation while still achieving high accuracy. We use a weak-to-strong training strategy, beginning with weak supervision from automatically generated labels and refining the model using a small number of manually labeled echograms.
 
 \section*{2. Related Work}
 Echogram segmentation has traditionally relied on manual tracing or classical image processing methods such as edge detection or probabilistic models. Crandall et al.~\cite{2} applied graphical models to trace layers semi-automatically. More recent deep learning models like U-Net~\cite{1} have seen widespread use in medical image segmentation and have been successfully adapted to radar echograms. Important studies with echograms can also be found in MacGregor et al~\cite{4}.\\\\
