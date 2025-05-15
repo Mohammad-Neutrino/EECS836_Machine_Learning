@@ -2,7 +2,7 @@
 
 This repository contains the complete code and data pipeline for the Spring 2025 EECS836 course project at the University of Kansas. The project focuses on detecting the **air–snow boundary** in radar echograms using a combination of weakly supervised learning and fine-tuned CNN models.
 
-## 🔍 Overview
+## Overview
 
 Radar echograms collected by CReSIS provide vertical profiles of snow and ice layers in polar regions. Manually identifying surface boundaries is tedious and does not scale across large datasets.
 
@@ -12,7 +12,7 @@ This project leverages:
 - A U-Net-based segmentation model
 - BCE + Dice loss for improved mask quality
 
-## 📁 Folder Structure
+## Folder Structure
 
 ```
 Project/
@@ -39,11 +39,11 @@ Project/
 │   └── evaluate_heldout.py
 │
 └── report/
-    └── final_report.tex          # Final LaTeX writeup
+    └── final_report.tex    # Final LaTeX writeup
     └── figs/               # Summary plots and visuals for report
 ```
 
-## 🚀 Getting Started
+## Getting Started
 
 Run the following steps from the repo's root:
 
@@ -78,13 +78,13 @@ python src/eval_metrics.py
 python src/evaluate_heldout.py
 ```
 
-## 📊 Key Results
+## Key Results
 
 - Achieved **mean IoU: 0.979** and **mean F1 Score: 0.989** on the manually labeled validation set.
 - Model generalized well to unseen echograms, including noisy and stratigraphically complex inputs.
 - BCE + Dice loss improved interior segmentation and reduced “hollow” prediction effects seen in earlier training epochs.
 
-## 📎 Dataset Source
+## Dataset Source
 
 Data is publicly available from:  
 **[CReSIS Snow Radar Dataset](https://data.cresis.ku.edu/data/snow/)**
@@ -92,12 +92,11 @@ Data is publicly available from:
 We specifically used 2022 Greenland P3 radar echograms from:  
 `https://data.cresis.ku.edu/data/snow/2022_Greenland_P3/images/`
 
-## 📘 Report
+## Report
 
-The final project report (written in LaTeX) is available at:  
-📄 `report/final_report.tex`
+The final project report (written in LaTeX) is available at:  `report/final_report.tex`
 
-## 🧠 Future Work
+## Future Work
 
 - Use `.mat` files for 3D reconstructions and geospatial surface tracking.
 - Add temporal context (adjacent frames) for smoother predictions.
@@ -105,9 +104,8 @@ The final project report (written in LaTeX) is available at:
 - Deploy the trained model across other CReSIS campaigns in Antarctica and beyond.
 - Use active learning to prioritize which echograms need manual labeling.
 
-## 📬 Contact
+## Contact
 
 Developed by: **Mohammad Ful Hossain Seikh**  
-KU EECS and Physics & Astronomy Graduate Student  
-📬 [Project GitHub Repository](https://github.com/Mohammad-Neutrino/EECS836_Machine_Learning/tree/trunk/Project)
+KU EECS and Physics & Astronomy Graduate Student [Project GitHub Repository](https://github.com/Mohammad-Neutrino/EECS836_Machine_Learning/tree/trunk/Project)
 
