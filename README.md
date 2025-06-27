@@ -1,6 +1,6 @@
-# EECS836 – Machine Learning (Spring 2025)
+# ML Project (Radar Echograms)
 
-Welcome to the main repository for **EECS836 – Machine Learning**, a graduate-level course at the University of Kansas. This repository documents the homework/coding assignments, final project, experiments, and personal learning throughout the Spring 2025 semester.
+Welcome to the main repository for **Machine Learning Project**, a graduate-level course at the University of Kansas. 
 
 ## 📦 Environment
 
